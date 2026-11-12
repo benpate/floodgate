@@ -1,0 +1,9 @@
+go test fuzz v1
+bool(true)
+int64(1794398340)
+int64(-4611686018427387938)
+int64(0)
+int64(0)
+bool(false)
+int(9)
+int64(1794398400)
