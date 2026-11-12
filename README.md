@@ -1,6 +1,10 @@
 # Floodgate
 
-A circuit breaker for outbound deliveries, keyed by remote host. Before each delivery it answers one question: may this server send to that host right now?
+<img src="https://github.com/benpate/floodgate/blob/main/meta/Tsunami_by_hokusai_19th_century.png" style="width:100%; margin-bottom:20px;">
+
+## Rate-Limiting Circuit Breaker for outbound requests in Go
+
+Floodgate is a circuit breaker for HTTP requests.  It tracks host status and blocks requests to hosts that that are known to be unavailable, with an automatic recovery that periodically checks if unavailable hosts have recovered.
 
 ```go
 gate := floodgate.New(store)
