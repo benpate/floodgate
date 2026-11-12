@@ -1,6 +1,6 @@
 # Floodgate
 
-<img src="https://github.com/benpate/floodgate/blob/main/meta/Tsunami_by_hokusai_19th_century.png" style="width:100%; margin-bottom:20px;">
+<img src="https://github.com/benpate/floodgate/blob/main/meta/Tsunami_by_hokusai_19th_century.png" style="width:100%; margin-bottom:20px;" alt="The Great Wave off Kanagawa woodcut by Hokusai, 1831. https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa">
 
 ## Rate-Limiting Circuit Breaker for outbound requests in Go
 
