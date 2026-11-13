@@ -50,6 +50,11 @@ func New(store Store, options ...GateOption) Gate {
 	return result
 }
 
+// Now returns the current time as this Gate reads it, which a test may have replaced
+func (gate Gate) Now() time.Time {
+	return gate.now()
+}
+
 // Blocked returns the hosts that nothing should be queued for, read from the Store once.
 // A fan-out loads it at the start and checks every recipient against it in memory.
 func (gate Gate) Blocked(ctx context.Context) (Blocklist, error) {

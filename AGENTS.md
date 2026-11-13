@@ -29,3 +29,19 @@ Deliveries that were already running when the host became unhealthy report their
 ## A stored number can be anything
 
 Records come from a database that an operator can edit and a bug can damage. `FuzzGate_ArbitraryRecord` gives `Check` and `Failure` a record holding any values, and found `nextCooldown` overflowing on a very large or negative cooldown. Arithmetic on a stored field must be bounded before it multiplies or adds.
+
+## The core package must not import `remote`
+
+`remotegate` is a subpackage so that the `floodgate` package itself needs only derp. The module's `go.mod` still lists remote, because Go resolves requirements for the whole module. Keep the import out of the core package anyway: an application with its own HTTP client imports `floodgate` alone.
+
+## The `remotegate` option does all the reporting, and its caller does none
+
+The option records every outcome. A caller that also reported would count each one twice. Reporting the Gate's own 429 back to it is worse: each waiting delivery would record the pause again with new jitter, and the pause would move later on every round. `TestOption_RateLimit` checks that refusals leave the pause where it was.
+
+## The option reports on a context of its own
+
+When a request times out, its context has already ended, so a failure recorded on that context would fail too. Every call to the Gate from the option uses `gateContext`. The check fails open and a failed report is sent to `derp.Report`, because the breaker must never be the reason a delivery is lost.
+
+## A host's key is `uri.Hostname`
+
+Lower case, no port. The option derives it from the request URL. Anything else that names a host to the Gate (a fan-out's blocked-host check, a revival on an inbound request) must use the same function, or it reads and writes a record that deliveries never see.

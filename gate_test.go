@@ -390,3 +390,13 @@ func TestGate_StoreErrors(t *testing.T) {
 	require.ErrorIs(t, gate.SetPaused(ctx, testHost, true), errBroken)
 	require.ErrorIs(t, gate.SetSignatureFormat(ctx, testHost, "x"), errBroken)
 }
+
+// TestGate_Now verifies that the Gate reports the time from the clock it was given
+func TestGate_Now(t *testing.T) {
+
+	gate, _, clock := newTestGate()
+	require.Equal(t, clock.current, gate.Now())
+
+	clock.advance(time.Hour)
+	require.Equal(t, clock.current, gate.Now())
+}
