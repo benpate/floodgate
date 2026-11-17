@@ -1,7 +1,7 @@
 github.com/benpate/derp v0.50.0 h1:2jAe0OJWfjkk0xyzF8HiwfPo1la8ewGJ0rw42YgyxT4=
 github.com/benpate/derp v0.50.0/go.mod h1:SxvA+hUVvdvMvw8CxuxqhwjbFmtehfInhMzJcEpfW6o=
-github.com/benpate/remote v0.28.0 h1:4LFw2KhbKF1FCuTMeI68uCc7KgXkYvNdUP5i0olS7Gg=
-github.com/benpate/remote v0.28.0/go.mod h1:PRV4GblTdzvgtjPbQrTtzs5EW7MxM9Ma8+5Sfn1ZxrU=
+github.com/benpate/remote v0.29.0 h1:w8xQrHsH2xFxPehfJ8QxBVSQLnMNcvbWRPBcdweHfIM=
+github.com/benpate/remote v0.29.0/go.mod h1:PRV4GblTdzvgtjPbQrTtzs5EW7MxM9Ma8+5Sfn1ZxrU=
 github.com/benpate/rosetta v0.49.0 h1:Y0lhpN/Larq12ByM1T/Tt1Q9OENh02UJ/7Jp52h54Uk=
 github.com/benpate/rosetta v0.49.0/go.mod h1:6r9yqscKk9T9KDIAmjjAQwnZoO2RT8bqfL3WO8FzdjQ=
 github.com/benpate/uri v0.10.0 h1:QusKQiFve5yt5MjonESMdId5mTtek/lXuuuLuMa6Ju0=
